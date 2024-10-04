@@ -7,6 +7,39 @@
     <title>Gesundheitsberatung</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS für Animationen */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero {
+            background-image: url('https://images.pexels.com/photos/4043873/pexels-photo-4043873.jpeg'); /* Beispielbild */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #about, #services {
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            background-color: #343a40;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -28,41 +61,40 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero bg-primary text-white text-center py-5">
+    <section class="hero text-white">
         <div class="container">
-            <h1>Willkommen bei Gesundheitsberatung - Angelika Weidner</h1>
-            <p>Ihr vertrauenswürdige Partnerin für professionelle Gesundheitsberatung</p>
-            <img src="https://www.pexels.com/de-de/foto/verschiedene-geschnittene-fruchte-in-weisser-keramikschale-1092730/" alt="Helfen gerne " class="img-fluid rounded">
+            <h1 class="fade-in">Willkommen bei Gesundheitsberatung - Angelika Weidner</h1>
+            <p class="fade-in">Ihr vertrauenswürdiger Partner für professionelle Gesundheitsberatung</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-5">
+    <section id="about" class="py-5 fade-in">
         <div class="container">
             <h2 class="text-center">Über mich</h2>
-            <p class="text-center">Ich bieten erstklassige Gesundheitsberatungsdienste an, um Ihnen zu helfen, ein ausgewogenes und gesundes Leben zu führen. Angelika Weidner hat Erfahrung in Ernährung, Gesundheit und Immun-Fit Coaching, die funktionieren.</p>
-            <img src="Foto von SHVETS production von Pexels: https://www.pexels.com/de-de/foto/mann-paar-frauen-sitzung-7176176/" alt="Team Gesundheitsberatung" class="img-fluid rounded">
+            <p class="text-center">Ich biete erstklassige Gesundheitsberatungsdienste an, um Ihnen zu helfen, ein ausgewogenes und gesundes Leben zu führen. Angelika Weidner hat Erfahrung in Ernährung, Gesundheit und Immun-Fit Coaching, die funktionieren.</p>
+            <img src="https://images.pexels.com/photos/7005158/pexels-photo-7005158.jpeg" alt="Team Gesundheitsberatung" class="img-fluid rounded mx-auto d-block">
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="bg-light py-5">
+    <section id="services" class="bg-light py-5 fade-in">
         <div class="container">
             <h2 class="text-center">Meine Dienstleistungen</h2>
             <div class="row text-center">
                 <div class="col-md-4">
                     <h3>Immun-Fit-Coaching</h3>
-                    <img src="https://www.pexels.com/de-de/foto/frau-landschaft-model-laufen-26997905/" alt="yeah" class="img-fluid rounded mb-2">
+                    <img src="https://images.pexels.com/photos/3825531/pexels-photo-3825531.jpeg" alt="Immun-Fit-Coaching" class="img-fluid rounded mb-2">
                     <p>Tiefgründiges Wissen über Ernährung, um Ihre Gesundheit wiederherzustellen.</p>
                 </div>
                 <div class="col-md-4">
                     <h3>Young-Family-Coaching</h3>
-                    <img src="https://www.pexels.com/de-de/foto/frau-fitness-ubung-trainieren-7721988/" alt="Mutter-Kind-Hilfe" class="img-fluid rounded mb-2">
-                    <p>Kostbares Wissen für junge Familien, um eure Lebens/-Gesundheitsqualität zu verbessern.</p>
+                    <img src="https://images.pexels.com/photos/7338578/pexels-photo-7338578.jpeg" alt="Young Family Coaching" class="img-fluid rounded mb-2">
+                    <p>Kostbares Wissen für junge Familien, um eure Lebens-/Gesundheitsqualität zu verbessern.</p>
                 </div>
                 <div class="col-md-4">
-                    <h3>Angi´s Kochrezepte</h3>
-                    <img src="https://www.pexels.com/de-de/foto/mann-paar-frauen-sitzung-7176176/" alt="cooking" class="img-fluid rounded mb-2">
+                    <h3>Angi's Kochrezepte</h3>
+                    <img src="https://images.pexels.com/photos/7246473/pexels-photo-7246473.jpeg" alt="Angi's Kochrezepte" class="img-fluid rounded mb-2">
                     <p>Konkurenz zu den besten Restaurants der Stadt.</p>
                 </div>
             </div>
@@ -70,7 +102,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="py-5 fade-in">
         <div class="container">
             <h2 class="text-center">Kontaktieren Sie uns</h2>
             <form>
