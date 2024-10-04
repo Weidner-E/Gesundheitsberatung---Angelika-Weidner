@@ -7,41 +7,40 @@
     <title>Gesundheitsberatung - Angelika Weidner</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5; /* Heller Hintergrund */
-            color: #343a40; /* Dunkle Schriftfarbe */
-            overflow-x: hidden; /* Verhindert horizontales Scrollen */
+            background-color: #f5f5f5; 
+            color: #343a40; 
+            overflow-x: hidden;
         }
 
         /* Navigation */
         .navbar {
-            background-color: #007bff; /* Blau für die Navigation */
-            transition: background-color 0.3s; /* Sanfte Übergänge */
+            background-color: #228B22; /* Saftiges Grün */
+            transition: background-color 0.3s;
         }
 
         .navbar-brand, .nav-link {
-            color: white !important; /* Weiße Schrift für die Navigation */
+            color: white !important;
         }
 
         .nav-link:hover {
-            color: #ffc107 !important; /* Gelbe Schrift beim Hover */
+            color: #32CD32 !important; /* Hellgrüner Hover-Effekt */
         }
 
         /* Hero Section */
         .hero {
-            background-image: url('https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?cs=srgb&dl=pexels-veeterzy-38136.jpg&fm=jpg');
+            background-image: url('https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg');
             background-size: cover;
             background-position: center;
-            height: 70vh; /* Höhere Hero-Section */
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            position: relative; /* Ermöglicht z-Index für die Überlagerung */
+            position: relative;
         }
 
         .hero::after {
@@ -51,79 +50,143 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Dunkle Überlagerung */
-            z-index: 1; /* Überlagerung über das Bild */
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         .hero h1, .hero p {
-            position: relative; /* Relativ für den z-Index */
-            z-index: 2; /* Text über der Überlagerung */
+            position: relative;
+            z-index: 2;
+            animation: slideIn 2s ease-out forwards;
         }
 
-        /* Abschnittsstile */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Hauptüberschriften */
         h2 {
             margin-top: 4rem;
-            color: #007bff; /* Blau für Überschriften */
-            text-align: center; /* Zentrierte Überschriften */
+            color: #228B22;
+            text-align: center;
         }
 
         /* Über mich Abschnitt */
         #about {
             padding: 4rem 0;
-            background-color: #ffffff; /* Weißer Hintergrund */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         #about img {
-            border-radius: 50%; /* Runde Bilder */
-            width: 200px; /* Feste Breite für die Bilder */
-            height: 200px; /* Feste Höhe für die Bilder */
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
         }
 
         /* Dienstleistungen Abschnitt */
         #services {
-            background-color: #e9ecef; /* Hellgrauer Hintergrund */
+            background-color: #e9ecef;
             padding: 4rem 0;
         }
 
         .card {
-            transition: transform 0.3s, box-shadow 0.3s; /* Animation für Hover-Effekte */
-            border: none; /* Keine Umrandung */
-            border-radius: 10px; /* Abgerundete Ecken */
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card img {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card:hover img {
+            transform: scale(1.1); /* Bildvergrößerung beim Hover */
         }
 
         .card:hover {
-            transform: translateY(-10px); /* Hebt die Karte beim Hover */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schatten beim Hover */
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .card:hover .card-body {
+            transform: translateX(0);
+            opacity: 1;
         }
 
         /* Kontakt Abschnitt */
         #contact {
             padding: 4rem 0;
-            background-color: #ffffff; /* Weißer Hintergrund */
+            background-color: #ffffff;
         }
 
         /* Footer */
         footer {
-            background-color: #007bff;
+            background-color: #228B22;
             color: white;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 4rem; /* Abstand zum Inhalt */
+            margin-top: 4rem;
         }
 
         footer a {
-            color: #ffc107; /* Gelbe Schrift für den Footer-Link */
+            color: #32CD32;
+        }
+
+        /* Weitere Animationen */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInEffect 2s forwards;
+        }
+
+        @keyframes fadeInEffect {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Flug-Effekt für Hover */
+        .card:hover .card-body {
+            transform: translateX(0);
+            opacity: 1;
+            animation: flyIn 1s ease-out forwards;
+        }
+
+        @keyframes flyIn {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
 
         /* Responsive Anpassungen */
         @media (max-width: 768px) {
             .hero {
-                height: 50vh; /* Kleinere Höhe für Mobilgeräte */
+                height: 50vh;
             }
 
             #about img {
-                width: 150px; /* Kleinere Bilder auf Mobilgeräten */
+                width: 150px;
                 height: 150px;
             }
         }
@@ -157,7 +220,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="fade-in">
         <div class="container text-center">
             <h2>Über mich</h2>
             <img src="https://images.pexels.com/photos/7005158/pexels-photo-7005158.jpeg" alt="Angelika Weidner" class="img-fluid mb-4">
@@ -166,7 +229,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="fade-in">
         <div class="container">
             <h2 class="text-center">Meine Dienstleistungen</h2>
             <div class="row text-center">
@@ -202,7 +265,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="fade-in">
         <div class="container">
             <h2 class="text-center">Kontaktieren Sie uns</h2>
             <form>
@@ -218,7 +281,7 @@
                     <label for="message" class="form-label">Nachricht</label>
                     <textarea class="form-control" id="message" rows="3" placeholder="Ihre Nachricht" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Nachricht senden</button>
+                <button type="submit" class="btn btn-success">Nachricht senden</button>
             </form>
         </div>
     </section>
@@ -231,3 +294,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
