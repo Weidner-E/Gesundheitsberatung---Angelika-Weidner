@@ -11,12 +11,15 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa; /* Heller Hintergrund */
+            background-color: #f5f5f5; /* Heller Hintergrund */
             color: #343a40; /* Dunkle Schriftfarbe */
+            overflow-x: hidden; /* Verhindert horizontales Scrollen */
         }
 
+        /* Navigation */
         .navbar {
             background-color: #007bff; /* Blau für die Navigation */
+            transition: background-color 0.3s; /* Sanfte Übergänge */
         }
 
         .navbar-brand, .nav-link {
@@ -27,63 +30,115 @@
             color: #ffc107 !important; /* Gelbe Schrift beim Hover */
         }
 
+        /* Hero Section */
         .hero {
             background-image: url('https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?cs=srgb&dl=pexels-veeterzy-38136.jpg&fm=jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 70vh; /* Höhere Hero-Section */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            position: relative; /* Ermöglicht z-Index für die Überlagerung */
         }
 
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dunkle Überlagerung */
+            z-index: 1; /* Überlagerung über das Bild */
+        }
+
+        .hero h1, .hero p {
+            position: relative; /* Relativ für den z-Index */
+            z-index: 2; /* Text über der Überlagerung */
+        }
+
+        /* Abschnittsstile */
         h2 {
-            margin-top: 2rem;
+            margin-top: 4rem;
             color: #007bff; /* Blau für Überschriften */
+            text-align: center; /* Zentrierte Überschriften */
         }
 
+        /* Über mich Abschnitt */
         #about {
-            padding: 3rem 0;
-            background-color: #ffffff; /* Weißer Hintergrund für den Abschnitt "Über mich" */
+            padding: 4rem 0;
+            background-color: #ffffff; /* Weißer Hintergrund */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
         }
 
+        #about img {
+            border-radius: 50%; /* Runde Bilder */
+            width: 200px; /* Feste Breite für die Bilder */
+            height: 200px; /* Feste Höhe für die Bilder */
+        }
+
+        /* Dienstleistungen Abschnitt */
         #services {
-            background-color: #e9ecef; /* Hellgrauer Hintergrund für Dienstleistungen */
-            padding: 3rem 0;
+            background-color: #e9ecef; /* Hellgrauer Hintergrund */
+            padding: 4rem 0;
         }
 
         .card {
-            transition: transform 0.2s; /* Animation für Hover-Effekte */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animation für Hover-Effekte */
+            border: none; /* Keine Umrandung */
+            border-radius: 10px; /* Abgerundete Ecken */
         }
 
         .card:hover {
-            transform: scale(1.05); /* Vergrößert die Karte beim Hover */
+            transform: translateY(-10px); /* Hebt die Karte beim Hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Schatten beim Hover */
         }
 
+        /* Kontakt Abschnitt */
+        #contact {
+            padding: 4rem 0;
+            background-color: #ffffff; /* Weißer Hintergrund */
+        }
+
+        /* Footer */
         footer {
             background-color: #007bff;
             color: white;
             text-align: center;
-            padding: 1rem 0;
+            padding: 2rem 0;
+            margin-top: 4rem; /* Abstand zum Inhalt */
         }
 
         footer a {
             color: #ffc107; /* Gelbe Schrift für den Footer-Link */
         }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh; /* Kleinere Höhe für Mobilgeräte */
+            }
+
+            #about img {
+                width: 150px; /* Kleinere Bilder auf Mobilgeräten */
+                height: 150px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Gesundheitsberatung - Angelika Weidner</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Navigation umschalten">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto"> <!-- Zentrierung der Navigation -->
+                <ul class="navbar-nav mx-auto"> <!-- Zentrierte Navigation -->
                     <li class="nav-item"><a class="nav-link" href="#home">Startseite</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">Über mich</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Dienstleistungen</a></li>
@@ -105,8 +160,8 @@
     <section id="about">
         <div class="container text-center">
             <h2>Über mich</h2>
+            <img src="https://images.pexels.com/photos/7005158/pexels-photo-7005158.jpeg" alt="Angelika Weidner" class="img-fluid mb-4">
             <p>Ich biete erstklassige Gesundheitsberatungsdienste an, um Ihnen zu helfen, ein ausgewogenes und gesundes Leben zu führen. Angelika Weidner hat Erfahrung in Ernährung, Gesundheit und Immun-Fit Coaching, die funktionieren.</p>
-            <img src="https://images.pexels.com/photos/7005158/pexels-photo-7005158.jpeg" alt="Team Gesundheitsberatung" class="img-fluid rounded mx-auto d-block">
         </div>
     </section>
 
@@ -147,32 +202,6 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact">
         <div class="container">
-            <h2 class="text-center">Kontaktieren Sie uns</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ihr Name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-Mail-Adresse</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Nachricht</label>
-                    <textarea class="form-control" id="message" rows="3" placeholder="Ihre Nachricht"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Nachricht senden</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 Gesundheitsberatung - Angelika Weidner. Alle Rechte vorbehalten. | <a href="#datenschutz">Datenschutzrichtlinien</a></p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+            <
