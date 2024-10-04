@@ -11,17 +11,16 @@
         /* CSS für Animationen */
         .fade-in {
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: fadeIn 1.5s forwards;
         }
         
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .hero {
-            background-image: url('https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?cs=srgb&dl=pexels-veeterzy-38136.jpg&fm=jpg'); /* Beispielbild */
+            background-image: url('https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?cs=srgb&dl=pexels-veeterzy-38136.jpg&fm=jpg');
             background-size: cover;
             background-position: center;
             height: 500px;
@@ -30,6 +29,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         #about, #services {
@@ -38,6 +38,52 @@
 
         footer {
             background-color: #343a40;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .nav-link {
+            color: #343a40 !important;
+        }
+
+        .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .btn-primary {
+            background-color: #28a745; /* Buttonfarbe */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838; /* Hover-Effekt */
+        }
+
+        /* Card Style */
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vergrößerungseffekt für die Card */
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -83,19 +129,31 @@
             <h2 class="text-center">Meine Dienstleistungen</h2>
             <div class="row text-center">
                 <div class="col-md-4">
-                    <h3>Immun-Fit-Coaching</h3>
-                    <img src="https://images.pexels.com/photos/3825531/pexels-photo-3825531.jpeg" alt="Immun-Fit-Coaching" class="img-fluid rounded mb-2">
-                    <p>Tiefgründiges Wissen über Ernährung, um Ihre Gesundheit wiederherzustellen.</p>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/3825531/pexels-photo-3825531.jpeg" alt="Immun-Fit-Coaching" class="card-img-top">
+                        <div class="card-body">
+                            <h3>Immun-Fit-Coaching</h3>
+                            <p>Tiefgründiges Wissen über Ernährung, um Ihre Gesundheit wiederherzustellen.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h3>Young-Family-Coaching</h3>
-                    <img src="https://images.pexels.com/photos/7338578/pexels-photo-7338578.jpeg" alt="Young Family Coaching" class="img-fluid rounded mb-2">
-                    <p>Kostbares Wissen für junge Familien, um eure Lebens-/Gesundheitsqualität zu verbessern.</p>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/7338578/pexels-photo-7338578.jpeg" alt="Young Family Coaching" class="card-img-top">
+                        <div class="card-body">
+                            <h3>Young-Family-Coaching</h3>
+                            <p>Kostbares Wissen für junge Familien, um eure Lebens-/Gesundheitsqualität zu verbessern.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <h3>Angi's Kochrezepte</h3>
-                    <img src="https://images.pexels.com/photos/7246473/pexels-photo-7246473.jpeg" alt="Angi's Kochrezepte" class="img-fluid rounded mb-2">
-                    <p>Konkurenz zu den besten Restaurants der Stadt.</p>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/7246473/pexels-photo-7246473.jpeg" alt="Angi's Kochrezepte" class="card-img-top">
+                        <div class="card-body">
+                            <h3>Angi's Kochrezepte</h3>
+                            <p>Konkurenz zu den besten Restaurants der Stadt.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
